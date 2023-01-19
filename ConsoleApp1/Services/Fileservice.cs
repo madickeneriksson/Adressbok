@@ -20,7 +20,10 @@ namespace ConsoleApp1.Services
                 using var sr = new StreamReader(filePath);
                 return sr.ReadToEnd();
             }
-            catch { return null!; }
+            catch 
+            {
+                return null!; 
+            }
         }
     }
 }
