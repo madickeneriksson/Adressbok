@@ -60,7 +60,9 @@ namespace WpfApp1
             {
                 FirstName = tb_FirstName.Text,
                 LastName = tb_LastName.Text,
-                Email = tb_Email.Text
+                Email = tb_Email.Text,
+                PhoneNumber = tb_PhoneNumber.Text,
+                Address = tb_Address.Text
             });
 
             file.Save(JsonConvert.SerializeObject(contacts));
@@ -71,6 +73,13 @@ namespace WpfApp1
             tb_FirstName.Text = "";
             tb_LastName.Text = "";
             tb_Email.Text = "";
+            tb_PhoneNumber.Text = "";
+            tb_Address.Text = "";
+        }
+
+        private void lbox_NavMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

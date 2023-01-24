@@ -1,5 +1,4 @@
 ﻿
-using ConsoleApp1.Interfaces;
 using ConsoleApp1.Models;
 using Newtonsoft.Json;
 
@@ -58,7 +57,7 @@ internal class Menu
         file.Save(FilePath, JsonConvert.SerializeObject(contacts));
 
         Console.WriteLine("");
-        Console.WriteLine("Tryck på valfri tangent för att komma till huvudmeny.");
+        Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken..");
         Console.ReadKey();
 
     }
@@ -71,7 +70,7 @@ internal class Menu
 
         contacts!.ForEach(contact => Console.WriteLine("Namn: " + contact.FirstName + " " + contact.LastName + "   " + "Email: " + contact.Email));
         Console.WriteLine("");
-        Console.WriteLine("Tryck på valfri tangent för att komma till huvudmeny.");
+        Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken..");
         Console.ReadKey();
     }
     private void OptionThree()
@@ -80,17 +79,18 @@ internal class Menu
         Console.WriteLine("Visa specifik kontakt");
         Console.WriteLine("");
         Console.Write("Ange förnamn på den person du söker: ");
-        var contactName = Console.ReadLine();
-
-        var foundName = contacts.Find(contact => contact.FirstName == contactName);
-        Console.WriteLine("Förnamn: " + foundName!.FirstName);
-        Console.WriteLine("Efternamn: " + foundName!.LastName);
-        Console.WriteLine("E-postadress: " + foundName!.Email);
-        Console.WriteLine("Telefonnummer: " + foundName!.Phone);
-        Console.WriteLine("Adress: " + foundName!.Address);
-
         Console.WriteLine("");
-        Console.WriteLine("Tryck på valfri tangent för att komma till huvudmeny.");
+        var contactFirstName = Console.ReadLine();
+
+        var contact = contacts.Find(x => x.FirstName == contactFirstName);
+        Console.WriteLine("Förnamn: " + contact!.FirstName);
+        Console.WriteLine("Efternamn: " + contact!.LastName);
+        Console.WriteLine("E-postadress: " + contact!.Email);
+        Console.WriteLine("Telefonnummer: " + contact!.Phone);
+        Console.WriteLine("Adress: " + contact!.Address);
+
+       
+        Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken.");
         Console.ReadKey();
 
     }
@@ -99,24 +99,29 @@ internal class Menu
         Console.Clear();
         Console.Write("Ta bort en specifik kontakt");
         Console.WriteLine("");
-        Console.Write("Ange E-postadress på personen du vill ta bort: ");
-        var result = Console.ReadLine();
-        Console.Write("Vill du ta bort personen med E-postadressen " + result + " " + "från listan? (y/n): ");
-        var answer = Console.ReadLine();
+        Console.Write("Ange förnamn på personen du vill ta bort: ");
+        Console.WriteLine("");
+        var contactFirstName = Console.ReadLine();
 
-        if (answer == "y") 
+        var contact = contacts.Find(x => x.FirstName == contactFirstName);
+        Console.WriteLine("Vill du ta bort " + contactFirstName + " från listan? ");
+        Console.Write("j = ja. n = nej.");
+        var inputanswer = Console.ReadLine();
+
+
+        if (inputanswer == "j")
         {
-            contacts.RemoveAll(contact => contact.Email == result);
+            contacts.Remove(contact);
+            contacts.RemoveAll(x => x.FirstName! == contactFirstName);
             Console.WriteLine("Personen har tagits bort");
         }
-        else if (answer == "n") 
+            else if (inputanswer == "n")
         {
-        Console.WriteLine("Avbryter");
+            Console.WriteLine("Åtgärden slutfördes ej");
         }
 
         Console.WriteLine("");
-        Console.WriteLine("Tryck på valfri tangent för att komma till huvudmeny.");
-        Console.ReadKey();
+        Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken..");
+        Console.ReadKey(); 
     }
 }
-text
