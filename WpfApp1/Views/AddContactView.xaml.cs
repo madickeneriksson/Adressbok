@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.Controls;
 
-namespace WpfApp1
+namespace WpfApp1.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for AddContactView.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AddContactView : UserControl
     {
-        public Window1()
+        public AddContactView()
         {
             InitializeComponent();
-        }
-
-        private void lbox_NavMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selected = lbox_NavMenu.SelectedItems as NavButton;
-            frame_Pagefram.Navigate(selected?.NavLink);
         }
     }
 }
