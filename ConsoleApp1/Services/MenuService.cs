@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ConsoleApp1.Services;
 
-internal class Menu   
+internal class MenuService   
 {
     private List<Contact> contacts = new List<Contact>();
     private Fileservice file = new Fileservice();
@@ -76,6 +76,7 @@ internal class Menu
         Console.WriteLine("");
         Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken..");
         Console.ReadKey();
+      
     }
     private void OptionThree()
     {
@@ -107,23 +108,23 @@ internal class Menu
         Console.WriteLine("");
         var contactFirstName = Console.ReadLine();
 
-       
         Console.WriteLine("Vill du ta bort " + contactFirstName + " från listan? ");
-        contacts.Find(x => x.FirstName == contactFirstName);
+
         Console.Write("j = ja. n = nej.");
         var inputanswer = Console.ReadLine();
         
         if (inputanswer == "j")
         {
-      
-            contacts.RemoveAll(x => x.FirstName! == contactFirstName);
+           
+            contacts.RemoveAll(contact => contact.FirstName! == contactFirstName);
+            file.Save(FilePath, JsonConvert.SerializeObject(contacts));
+
             Console.WriteLine("Personen har tagits bort");
         }
             else if (inputanswer == "n")
         {
             Console.WriteLine("Åtgärden slutfördes ej");
         }
-
         Console.WriteLine("");
         Console.WriteLine("Tryck på valfri tangent för att komma till startsidan på adressboken..");
         Console.ReadKey(); 

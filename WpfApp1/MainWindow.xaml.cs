@@ -47,31 +47,31 @@ namespace WpfApp1
             }
             catch { }
 
-           // lv_Contact.ItemsSource = contacts;
+            lv_Contact.ItemsSource = contacts;
         }
 
-       // private void TextBox_TextChanged(object sender, TextChangedEventArgs e){}
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e){}
 
         private void Btn_Add_Click(object sender, RoutedEventArgs e){
             contacts.Add(new Contact
             {
-               // FirstName = tb_FirstName.Text,
-               // LastName = tb_LastName.Text,
-               // Email = tb_Email.Text,
-               // PhoneNumber = tb_PhoneNumber.Text,
-               // Address = tb_Address.Text
+                FirstName = tb_FirstName.Text,
+                LastName = tb_LastName.Text,
+                Email = tb_Email.Text,
+                PhoneNumber = tb_PhoneNumber.Text,
+                Address = tb_Address.Text
             });
 
             file.Save(JsonConvert.SerializeObject(contacts));
             ClearFrom();
-        }
+         }
         private void ClearFrom()
         {
-           // tb_FirstName.Text = "";
-           // tb_LastName.Text = "";
-           // tb_Email.Text = "";
-           // tb_PhoneNumber.Text = "";
-           // tb_Address.Text = "";
+            tb_FirstName.Text = "";
+            tb_LastName.Text = "";
+            tb_Email.Text = "";
+            tb_PhoneNumber.Text = "";
+            tb_Address.Text = "";
         }
 
         private void lbox_NavMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
