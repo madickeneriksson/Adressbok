@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,28 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.Controls;
-using WpfApp1.Models;
-using WpfApp1.Services;
 
-namespace WpfApp1
+namespace WpfAdressbok
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-   
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-  
-
-        }
-        private void lbox_NavMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selected = lbox_NavMenu_SelectedItem as NavButton;
-            frame_PageFrame.Navigate(selected?.NavLink);
         }
     }
 }

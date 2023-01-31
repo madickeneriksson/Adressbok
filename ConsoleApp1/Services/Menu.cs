@@ -4,12 +4,14 @@ using Newtonsoft.Json;
 
 namespace ConsoleApp1.Services;
 
-internal class MenuService   
+public class Menu   
 {
-    private List<Contact> contacts = new List<Contact>();
-    private Fileservice file = new Fileservice();
+    public List<Contact> contacts = new List<Contact>();
+    public Fileservice file = new Fileservice();
 
     public string FilePath { get; set; } = null!;
+   
+
     public void StartMenu()
     {
         try

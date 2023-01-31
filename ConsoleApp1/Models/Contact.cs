@@ -3,7 +3,7 @@ using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Models;
 
-internal class Contact : Interfaces.IContact
+public class Contact : Interfaces.IContact
 {
 
     public Guid Id { get; set; } = Guid.NewGuid();

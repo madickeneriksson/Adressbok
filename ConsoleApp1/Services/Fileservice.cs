@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Services
 {
-    internal class Fileservice
+    public class Fileservice
     {
         public void Save(string filePath, string content)
         { 

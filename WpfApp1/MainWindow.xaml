@@ -11,95 +11,21 @@
 
 
     <Grid Margin="5">
-     
-        <Grid.RowDefinitions>
 
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+       
+
+   
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox  Width="50" Name="lbox_NavMenu" SelectionMode="Single" SelectionChanged="lbox_NavMenu_SelectionChanged" BorderThickness="0" Margin="0,0,0,122" Grid.RowSpan="1">
+        <ListBox Grid.Column="0"  Width="auto" Name="lbox_NavMenu" SelectionMode="Single" SelectionChanged="lbox_NavMenu_SelectionChanged" BorderThickness="0" Margin="0,0,0,122" Grid.RowSpan="1">
             <controls:NavButton  Margin="3" Padding="6" NavLink="/Pages/AddContact.xaml" Icon="" Height="41" Width="32" />
             <controls:NavButton Margin="3" Padding="6" NavLink="/Pages/ContactsView.xaml" Icon="" />
         </ListBox>
 
-
-
-        <!--
-        <StackPanel Grid.Column="0" Width="50">
-            <Button Command="{Binding GoToAddContactCommand}" Height="40" Width="40" Margin="0 0 0 10" />
-            <Button Command="{Binding GoToContactsCommand}" Height="40" Width="40" Margin="0 0 0 10" />
-        </StackPanel>
-
-        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-				<DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
-                    <views:AddContactView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
-                    <views:ContactsView />
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
-        -->
-
-
-
-       <Frame Grid.Column="1" Name="frame_Pagefram" NavigationUIVisibility="Hidden" Background="Pink" Grid.RowSpan="2" />
-
-
-        <!-- CONTACTFORM -->
-
-
-
-        <Grid Grid.Column="2" Margin="0 0 30 0" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Column="1">
-
-                <TextBlock Text="Förnamn:" />
-                <TextBox Name="tb_FirstName" Padding="3" Margin=" 0 0 0 10" />
-
-                <TextBlock Text="Efternamn:" />
-                <TextBox Name="tb_LastName" Padding="3" Margin=" 0 0 0 10" />
-
-                <TextBlock Text="E-postadress:" />
-                <TextBox Name="tb_Email" Padding="3" Margin=" 0 0 0 10" />
-
-                <TextBlock Text="Telefonnummer:" />
-                <TextBox Name="tb_PhoneNumber" Padding="3" Margin=" 0 0 0 10" />
-
-                <TextBlock Text="Adress:" />
-                <TextBox Name="tb_Address" Padding="3" Margin=" 0 0 0 10" />
-
-            </StackPanel>
-
-            <Button x:Name="btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" />
-        </Grid>
-
-        <!-- CONTACTLIST -->
-
-        <ListView x:Name="lv_Contact" Grid.Column="3" Margin="0 0 30 0" Grid.RowSpan="2">
-            <ListView.ItemTemplate>
-                <DataTemplate DataType="models:Contact" >
-                    <StackPanel Margin="0 5 0 5">
-                        <TextBlock FontWeight="Bold" Text="{Binding FirstName}" />
-                        <TextBlock FontWeight="Bold" Text="{Binding LastName}" />
-                        <TextBlock FontWeight="Bold" Text="{Binding Email}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame Grid.Column="1" Name="frame_Pagefram" NavigationUIVisibility="Hidden" Background="#eeeeee" />
 
     </Grid>
 </Window>
