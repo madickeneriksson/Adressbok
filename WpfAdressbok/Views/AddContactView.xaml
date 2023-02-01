@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAdressbok.Views" 
              xmlns:models="clr-namespace:WpfAdressbok.Models"
-             xmlns:viewmodels="clr-namespace:WpfAdressbok.MWWM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
+             xmlns:mwwm="clr-namespace:WpfAdressbok.MWWM.ViewModels"
+             xmlns:viewmodels="clr-namespace:WpfAdressbok.MWWM.ViewModels" d:DataContext="{d:DesignInstance Type=mwwm:MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="20">
@@ -13,10 +14,11 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Add contacts" FontSize="25" Margin="0 0 0 20 " />
+        <TextBlock Grid.Row="0" Text="Add contact" FontSize="25" Margin="0 0 0 20 " />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+             
             </Grid.ColumnDefinitions>
             
             <StackPanel Background="Transparent" Grid.Column="1">
@@ -42,8 +44,9 @@
                 <TextBlock Text="Stad:" />
                 <TextBox Name="tb_City" Padding="3" Margin=" 0 0 0 10" />
 
-                <Button x:Name="btn_Create" Click="btn_Create_Click" Content="Add contact to list" Width="auto" Background="#97BAC4" />
+                <Button Command="{Binding AddCommand}" Content="Add" Background="#97BAC4" />
             </StackPanel>
+            
         </Grid>
     </Grid>
 </UserControl>

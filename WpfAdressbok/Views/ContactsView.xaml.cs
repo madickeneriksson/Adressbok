@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Utils.CommonDialogs.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,24 @@ namespace WpfAdressbok.Views
             var button = (Button)sender;
             var contact = (ContactModel)button.DataContext;
 
-            ContactService.Remove(contact);
+            
+                
+            MessageBoxResult result;
+
+            result = MessageBox.Show("Är du säker på att du vill ta bort kontakten?", "Ta bort kontakt", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                ContactService.Remove(contact);
+            }
+
+            else
+            {
+
+            }
+
+
+
         }
 
     }

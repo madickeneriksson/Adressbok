@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfAdressbok.Models;
 using WpfAdressbok.Services;
 
@@ -24,8 +25,23 @@ namespace WpfAdressbok.MWWM.ViewModels
 
         [RelayCommand]
         public void Remove()
+
         {
-            ContactService.Remove(SelectedContact);
+            MessageBoxResult result;
+
+            result = MessageBox.Show("Är du säker på att du vill ta bort kontakten?", "Ta bort kontakt", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                ContactService.Remove(SelectedContact);
+            }
+
+            else
+            {
+
+            }
+
+            
         }   
     }
 }
