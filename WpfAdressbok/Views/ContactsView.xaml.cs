@@ -42,13 +42,5 @@ namespace WpfAdressbok.Views
             ContactService.Remove(contact);
         }
 
-        private void ListView_Selected(object sender, RoutedEventArgs e)
-        {
-            var listViewItem = (ListViewItem)sender;
-            var contact = (ContactModel)listViewItem.DataContext;
-
-            MessageBox.Show(contact.DisplayName);
-
-        }
     }
 }

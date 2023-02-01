@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,5 +18,14 @@ namespace WpfAdressbok.MWWM.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<ContactModel> contacts = ContactService.Contacts();
+
+        [ObservableProperty]
+        private ContactModel selectedContact = null!;
+
+        [RelayCommand]
+        public void Remove()
+        {
+            ContactService.Remove(SelectedContact);
+        }   
     }
 }

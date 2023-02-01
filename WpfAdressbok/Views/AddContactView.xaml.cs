@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAdressbok.Models;
+using WpfAdressbok.Services;
 
 namespace WpfAdressbok.Views
 {
@@ -23,6 +25,26 @@ namespace WpfAdressbok.Views
         public AddContactView()
         {
             InitializeComponent();
+        }
+
+        private void btn_Create_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                var button = (Button)sender;
+                var contact = (ContactModel)button.DataContext;
+
+                ContactService.Add(contact);
+                {
+                    contact.FirstName = tb_FirstName.Text;
+                    contact.LastName = tb_LastName.Text;
+                    contact.Email = tb_Email.Text;
+                    contact.Address = tb_Address.Text;
+                    contact.PostalCode= tb_PostalCode.Text;
+                    contact.City = tb_City.Text;
+
+                }
+            }
+
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:models="clr-namespace:WpfAdressbok.Models"
+             xmlns:mwwm="clr-namespace:WpfAdressbok.MWWM.ViewModels"
              xmlns:local="clr-namespace:WpfAdressbok.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -20,7 +21,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <ListView BorderThickness="0" Background="Transparent" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" >
+            <ListView BorderThickness="0" Background="Transparent" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}" >
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type models:ContactModel}">
                         <Grid Margin="0 5 0 5">
@@ -35,15 +36,18 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button x:Name="btn_Edit" Click="btn_Edit_Click" Content="Edit" Width="50" Background="Beige" Margin="5 0 0 0" />
-                                <Button x:Name="btn_Remove" Click="btn_Remove_Click" Content="Remove" Width="50" Background="Beige"  Margin="5 0 0 0"  />
+                                <Button x:Name="btn_Edit" Click="btn_Edit_Click" Content="Edit" Width="50" Background="#97BAC4" Margin="5 0 0 0" />
+                                <Button x:Name="btn_Remove" Click="btn_Remove_Click" Content="Remove" Width="50" Background="#97BAC4"  Margin="5 0 0 0"  />
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding SelectedContact.DisplayName}" />
+                <Button Command="{Binding RemoveCommand}" Content="Remove" Background="#97BAC4" />
+            </StackPanel>
 
 
 
