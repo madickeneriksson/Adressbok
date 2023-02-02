@@ -36,6 +36,12 @@ namespace WpfAdressbok.Services
             contacts.Remove(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
         }
+        public static void Edit(ContactModel model)
+
+        {
+            contacts.Add(model);
+            fileService.Save(JsonConvert.SerializeObject(contacts));
+        }
         public static ObservableCollection<ContactModel> Contacts()
         { 
             return contacts;

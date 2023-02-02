@@ -24,6 +24,12 @@ namespace WpfAdressbok.MWWM.ViewModels
         private ContactModel selectedContact = null!;
 
         [RelayCommand]
+        public void Edit()
+        {
+            ContactService.Edit(SelectedContact);
+        }
+
+        [RelayCommand]
         public void Remove()
 
         {
