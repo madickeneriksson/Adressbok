@@ -19,14 +19,14 @@ namespace WpfAdressbok.Services
 
         static ContactService()
         {
-            try 
+            try
             {
                 contacts = JsonConvert.DeserializeObject<ObservableCollection<ContactModel>>(fileService.Read())!;
             }
             catch { contacts = new ObservableCollection<ContactModel>(); }
         }
 
-        public static void Add(ContactModel model) 
+        public static void Add(ContactModel model)
         {
             contacts.Add(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
@@ -41,7 +41,10 @@ namespace WpfAdressbok.Services
         {
             contacts.Add(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
+         
         }
+
+
         public static ObservableCollection<ContactModel> Contacts()
         { 
             return contacts;

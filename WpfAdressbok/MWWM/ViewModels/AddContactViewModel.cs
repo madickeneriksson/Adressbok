@@ -19,28 +19,28 @@ namespace WpfAdressbok.MWWM.ViewModels
         [ObservableProperty]
         private string title = "Add Contacts";
 
-
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts = ContactService.Contacts();
+        private ContactModel contact = new ContactModel();
 
-        [ObservableProperty]
-        private ContactModel selectedContact = null!;
+       
+
+
+
 
         [RelayCommand]
         public void Add()
             
             
-        {    
-            ContactService.Add(SelectedContact);
-
-           
-         
-        }
-        public void ClearForm()
         {
-
+            ContactService.Add(Contact);
+ 
         }
-
-
+        [RelayCommand]
+        public void Clear()
+        {
+            
+        }
+     
+     
     }
 }

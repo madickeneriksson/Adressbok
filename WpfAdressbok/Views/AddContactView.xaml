@@ -24,25 +24,25 @@
             <StackPanel x:Name="AddContacts" Grid.Column="1" Background="Transparent">
 
                 <TextBlock Text="Förnamn:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.FirstName}" Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="Efternamn:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.LastName}" Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="E-postadress:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.Email}" Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="Telefonnummer:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.Phone}" Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="Adress:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                 <TextBox Text="{Binding Contact.Address}" Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="Postkod:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.PostalCode}"  Padding="3" Margin=" 0 0 0 10" />
 
                 <TextBlock Text="Stad:" />
-                <TextBox Padding="3" Margin=" 0 0 0 10" />
+                <TextBox Text="{Binding Contact.City}"  Padding="3" Margin=" 0 0 0 10" />
 
                 <Button Command="{Binding AddCommand}" Content="Add" Background="#97BAC4" />
 
