@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WpfAdressbok.Models
 {
-    public class ContactModel
+    public class ContactModel : Interfaces.IContactModel
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string FirstName { get; set; } = null!;

@@ -1,11 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfAdressbok.Models;
 using WpfAdressbok.Services;
@@ -36,25 +32,36 @@ namespace WpfAdressbok.MWWM.ViewModels
 
             if (result == MessageBoxResult.Yes)
             {
+                contacts.Remove(selectedContact);
                 ContactService.Remove(SelectedContact);
             }
 
-            else
-            {
-
-            }
+            else { }
    
         }
+
+        // yes and no box - cred to w3schools
+
         [RelayCommand]
-        private void UpdateContact()
+        public void UpdateContact()
+
         {
-            MessageBox.Show($"Vald kontakt: {selectedContact.DisplayName}");
-            Update(selectedContact.Id, selectedContact);
+            MessageBoxResult result;
+
+            result = MessageBox.Show($"Vill du uppdatera kontakten {selectedContact.DisplayName} ?", "Uppdatera kontakten", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Update(selectedContact.Id, selectedContact);
+
+            }
+
+            else { }
         }
 
-        private void Update(Guid id, ContactModel contact)
+       private void Update(Guid id, ContactModel contact)
         {
-            ContactService.Update(SelectedContact);
+            ContactService.UpdateListItem(id, contact);
         }
     }
 }

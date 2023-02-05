@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:WpfAdressbok"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="850">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70" />
@@ -15,11 +16,12 @@
         </Grid.ColumnDefinitions>
         <ListBox Grid.Column="0"></ListBox>
         <Frame Grid.Column="1" />
+        
 <!-- Buttons-->
         <StackPanel  Margin="0 20 0 0"  Grid.Column="0">
-            <Button Command="{Binding GoToAddContactCommand}" Content="ADD" FontSize="15" Background="#97BAC4" Height="40" Width="40" Margin="0 0 0 10"  />
+            <Button Command="{Binding GoToAddContactCommand}" Content="ADD" FontSize="15" Background="#97BAC4" Height="40" Width="40" Margin="0 0 0 10" />
             <Button Command="{Binding GoToContactCommand}" Content="C" FontSize="20" Background="#97BAC4" Height="40" Width="40" Margin="0 0 0 10"  />
-           
+        
         </StackPanel>
 <!-- Links -->
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
@@ -30,9 +32,8 @@
                 <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}" >
                     <views:ContactsView />
                 </DataTemplate>
-               
+
             </ContentControl.Resources>
         </ContentControl>
-
     </Grid>
 </Window>

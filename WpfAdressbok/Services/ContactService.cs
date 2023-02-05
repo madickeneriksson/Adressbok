@@ -1,15 +1,7 @@
 ﻿using DevExpress.Data.Extensions;
-using DevExpress.Utils.About;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using WpfAdressbok.Models;
 
 namespace WpfAdressbok.Services
@@ -40,19 +32,27 @@ namespace WpfAdressbok.Services
             fileService.Save(JsonConvert.SerializeObject(contacts));
         }
 
-        public static void Update(ContactModel model)
+        public static void UpdateListItem(Guid id, ContactModel contact)
         {
+            var item = contacts.FindIndex(x => x.Id == id);
+            var index = contacts.FindIndex(item => item.Id == id);
+            try
+            {
+                contacts.RemoveAt(index);
+                contacts.Insert(index, contact);
+                fileService.Save(JsonConvert.SerializeObject(contacts));
+            }
+            catch { }
 
-            contacts.Add(model);
-            fileService.Save(JsonConvert.SerializeObject(contacts));
-           
         }
-
-
 
         public static ObservableCollection<ContactModel> Contacts()
         {
-            return contacts;
+            var items = new ObservableCollection<ContactModel>();
+            foreach (var contact in contacts)
+                items.Add(contact);
+
+            return items;
         }
 
     }

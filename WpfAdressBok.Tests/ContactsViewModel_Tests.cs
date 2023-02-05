@@ -15,8 +15,7 @@ namespace WpfAdressBok.Tests
             viewModel= new ContactsViewModel();
         }
 
-      
-
+     
         [Fact]
         public void Should_Add_Contact_To_ContactList()
         {
@@ -27,7 +26,6 @@ namespace WpfAdressBok.Tests
             // assert
             viewModel.Contacts.Should().BeOfType<ObservableCollection<ContactModel>>();
             viewModel.Contacts.Should().Contain(contact);
-
 
         }
     }

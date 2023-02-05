@@ -71,7 +71,7 @@ public class Menu
 
     {
         Console.Clear();
-        Console.WriteLine("Kontakter ");
+        Console.WriteLine("Alla kontakter ");
         Console.WriteLine("");
 
         contacts!.ForEach(contact => Console.WriteLine("Namn: " + contact.FirstName + " " + contact.LastName + "   " + "Email: " + contact.Email));

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfAdressbok.Models;
+
 
 namespace WpfAdressbok.Services
 {
@@ -31,11 +27,6 @@ namespace WpfAdressbok.Services
             sw.Write(content);
             
         }
-
-
-
-      
-
 
     }
 }
