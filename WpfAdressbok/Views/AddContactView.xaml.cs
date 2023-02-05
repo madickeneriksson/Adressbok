@@ -27,6 +27,7 @@ namespace WpfAdressbok.Views
             InitializeComponent();
         }
 
+
        
     }
 }

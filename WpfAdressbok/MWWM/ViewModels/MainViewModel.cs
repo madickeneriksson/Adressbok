@@ -21,6 +21,9 @@ namespace WpfAdressbok.MWWM.ViewModels
         [RelayCommand]
         private void GoToContact() => CurrentViewModel = new ContactsViewModel();
 
-    
+ 
+
+
+
     }
 }

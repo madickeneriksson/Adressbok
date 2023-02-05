@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using DevExpress.Data.Extensions;
+using DevExpress.Utils.About;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,29 +27,33 @@ namespace WpfAdressbok.Services
             }
             catch { contacts = new ObservableCollection<ContactModel>(); }
         }
-
+    
         public static void Add(ContactModel model)
         {
             contacts.Add(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
+            
         }
         public static void Remove(ContactModel model)
         {
             contacts.Remove(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
         }
-        public static void Edit(ContactModel model)
 
+        public static void Update(ContactModel model)
         {
+
             contacts.Add(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
-         
+           
         }
+
 
 
         public static ObservableCollection<ContactModel> Contacts()
-        { 
+        {
             return contacts;
         }
+
     }
 }

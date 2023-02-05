@@ -56,9 +56,11 @@ namespace WpfAdressbok.Views
 
             }
 
-
-
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EditContactForm.Visibility = Visibility.Visible;
+        }
     }
 }
