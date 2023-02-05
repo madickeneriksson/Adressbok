@@ -29,7 +29,9 @@ namespace WpfAdressbok.MWWM.ViewModels
             }
 
             else
-            {}
+            {
+
+            }
             
         }
      
