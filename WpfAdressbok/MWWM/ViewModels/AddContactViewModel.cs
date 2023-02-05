@@ -28,10 +28,7 @@ namespace WpfAdressbok.MWWM.ViewModels
                 ContactService.Add(contact);
             }
 
-            else
-            {
-
-            }
+            else  { }
             
         }
      
