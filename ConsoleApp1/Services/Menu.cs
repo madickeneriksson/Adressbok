@@ -85,11 +85,11 @@ public class Menu
         Console.Clear();
         Console.WriteLine("Visa specifik kontakt");
         Console.WriteLine("");
-        Console.Write("Ange förnamn på den person du söker: ");
+        Console.Write("Ange e-postadress på den person du söker: ");
         Console.WriteLine("");
-        var contactFirstName = Console.ReadLine();
+        var contactEmail = Console.ReadLine();
 
-        var contact = contacts.Find(x => x.FirstName == contactFirstName);
+        var contact = contacts.Find(x => x.Email == contactEmail);
         Console.WriteLine("Förnamn: " + contact!.FirstName);
         Console.WriteLine("Efternamn: " + contact!.LastName);
         Console.WriteLine("E-postadress: " + contact!.Email);
@@ -106,11 +106,11 @@ public class Menu
         Console.Clear();
         Console.Write("Ta bort en specifik kontakt");
         Console.WriteLine("");
-        Console.Write("Ange förnamn på personen du vill ta bort: ");
+        Console.Write("Ange e-postadress på personen du vill ta bort: ");
         Console.WriteLine("");
-        var contactFirstName = Console.ReadLine();
+        var contactEmail = Console.ReadLine();
 
-        Console.WriteLine("Vill du ta bort " + contactFirstName + " från listan? ");
+        Console.WriteLine("Vill du ta bort " + contactEmail + " från listan? ");
 
         Console.Write("j = ja. n = nej.");
         var inputanswer = Console.ReadLine();
@@ -118,7 +118,7 @@ public class Menu
         if (inputanswer == "j")
         {
            
-            contacts.RemoveAll(contact => contact.FirstName! == contactFirstName);
+            contacts.RemoveAll(contact => contact.Email! == contactEmail);
             file.Save(FilePath, JsonConvert.SerializeObject(contacts));
 
             Console.WriteLine("Personen har tagits bort");
